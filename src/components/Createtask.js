@@ -92,11 +92,19 @@ function Createtask() {
     handleFilter(filterCriteria);
   }
 
+  const handleClickClearFilter = ()=>{
+        setFilterCriteria({
+            assignee:'',
+            priority:'',
+            date:''
+        })
+      }
+
   return (
     <div className='createtask'>
       <div className='single-createtask'>
         <div className='filter'>
-          <h5>Filter By:</h5>
+          <p>Filter By:</p>
           <InputGroup className="mb-5">
             {/* <InputGroup.Text id="basic-addon1">Title</InputGroup.Text> */}
             <Form.Control
@@ -137,7 +145,10 @@ function Createtask() {
               onChange={handleFilterChange}
             />
           </InputGroup>
+          <div className='filterBtns'>
           <Button className='Gobtn' onClick={handleClickFilter}>Go</Button>
+          <Button variant='secondary' className='Clearbtn' onClick={handleClickClearFilter}>Clear</Button>
+          </div>
         </div>
         <Button className='createtaskButton' variant="primary" onClick={handleShow}>
           Add New Task
